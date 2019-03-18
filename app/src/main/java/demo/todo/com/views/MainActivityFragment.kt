@@ -1,10 +1,11 @@
-package demo.todo.com
+package demo.todo.com.views
 
 import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import demo.todo.com.R
 
 /**
  * A placeholder fragment containing a simple view.
