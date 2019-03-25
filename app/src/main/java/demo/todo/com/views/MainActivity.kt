@@ -1,11 +1,15 @@
 package demo.todo.com.views
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
 import demo.todo.com.R
+import demo.todo.com.viewmodels.ToDoViewModel
 
 import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
@@ -16,8 +20,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+
         }
     }
 
@@ -32,7 +35,8 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when(item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_save -> true
+            R.id.action_delete_all -> true
             else -> super.onOptionsItemSelected(item)
         }
     }
