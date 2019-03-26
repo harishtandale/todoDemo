@@ -2,7 +2,7 @@ package demo.todo.com.db.dao
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*
-import demo.todo.com.db.model.ToDoItemEntity
+import demo.todo.com.db.entities.ToDoItemEntity
 
 @Dao
 interface ToDoDao {

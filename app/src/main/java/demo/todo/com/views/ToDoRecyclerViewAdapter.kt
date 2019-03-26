@@ -6,14 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import demo.todo.com.R
-import demo.todo.com.db.model.ToDoItemEntity
+import demo.todo.com.db.entities.ToDoItemEntity
 import kotlinx.android.synthetic.main.todo_item.view.*
 
 class ToDoRecyclerViewAdapter : RecyclerView.Adapter<ToDoRecyclerViewHolder>() {
-    lateinit var todoItemsList: List<ToDoItemEntity>
-    private fun setItems(todoItemsList: List<ToDoItemEntity>) {
-        this.todoItemsList = todoItemsList
-    }
+    var todoItemsList: List<ToDoItemEntity> = arrayListOf<ToDoItemEntity>()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ToDoRecyclerViewHolder {
         val itemView = LayoutInflater.from(viewGroup.context).inflate(R.layout.todo_item, viewGroup, false)
@@ -33,5 +30,4 @@ class ToDoRecyclerViewAdapter : RecyclerView.Adapter<ToDoRecyclerViewHolder>() {
 class ToDoRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var title: TextView = itemView.title_text
     var content: TextView = itemView.content_text
-
 }

@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import demo.todo.com.db.dao.ToDoDao
-import demo.todo.com.db.model.ToDoItemEntity
+import demo.todo.com.db.entities.ToDoItemEntity
 
 @Database(entities = [ToDoItemEntity::class],version = 1)
 abstract class ToDoDatabase : RoomDatabase() {
