@@ -3,5 +3,10 @@
     <string name="action_settings">Settings</string>
     <string name="action_save">Save</string>
     <string name="action_delete_all">Delete All</string>
-    <string name="action_cancel">Cencel</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="title">Title</string>
+    <string name="note">Note</string>
+    <string name="alert">Alert</string>
+    <string name="are_you_sure">This will delete all Todos. \n Are you sure?</string>
+    <string name="delete">Delete</string>
 </resources>

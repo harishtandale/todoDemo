@@ -14,15 +14,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         toDoViewModel = ViewModelProviders.of(this).get(ToDoViewModel::class.java)
-        supportFragmentManager.beginTransaction().replace(R.id.main_container, ToDoMainFragment())
-            .addToBackStack("main_view").commit()
+        if(savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().add(R.id.main_container, ToDoMainFragment())
+                .addToBackStack("main_view").commit()
+        }
     }
 
-    /*override fun onBackPressed() {
-        if(supportFragmentManager.backStackEntryCount == 0)
-            super.onBackPressed()
+    override fun onBackPressed() {
+        if(supportFragmentManager.backStackEntryCount == 1)
+            finish()
         else
             supportFragmentManager.popBackStackImmediate()
 
-    }*/
+    }
 }

@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.fragment_new_to_do.*
 class NewToDoFragment: Fragment() {
     var title : String?= ""
     var content : String?= ""
-
+    private var toDoItemEntity : ToDoItemEntity? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_new_to_do,container,false)
     }
@@ -23,14 +23,30 @@ class NewToDoFragment: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        title = arguments!!.getString("title")
-//        content = arguments!!.getString("content")
+        toDoItemEntity =  arguments?.getParcelable<ToDoItemEntity>("todo_item")
+        title = toDoItemEntity?.title
+        content = toDoItemEntity?.content
         title_text.setText(title)
         content_text.setText(content)
         toDoViewModel = (activity as MainActivity).toDoViewModel
         button_save.setOnClickListener {
-            toDoViewModel.insertOrUpdate(ToDoItemEntity(title = title_text.text.toString(),content = content_text.text.toString(),id=null))
+            if(!title_text.text.toString().isEmpty() && !content_text.text.toString().isEmpty()){
+                if (toDoItemEntity == null) {
+                    toDoViewModel.insertOrUpdate(
+                        ToDoItemEntity(
+                            title = title_text.text.toString(),
+                            content = content_text.text.toString()
+                        )
+                    )
+                } else {
+                    toDoItemEntity!!.title = title_text.text.toString()
+                    toDoItemEntity!!.content = content_text.text.toString()
+                    toDoViewModel.insertOrUpdate(toDoItemEntity!!)
+                }
+            }
             (activity as MainActivity).supportFragmentManager.popBackStack()
         }
-     }
+
+        button_cancel.setOnClickListener { (activity as MainActivity).supportFragmentManager.popBackStack() }
+    }
  }
