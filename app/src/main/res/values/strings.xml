@@ -9,4 +9,5 @@
     <string name="alert">Alert</string>
     <string name="are_you_sure">This will delete all Todos. \n Are you sure?</string>
     <string name="delete">Delete</string>
+    <string name="please_add_todo_item">Please Add ToDo Item</string>
 </resources>

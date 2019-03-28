@@ -30,7 +30,7 @@ class NewToDoFragment: Fragment() {
         content_text.setText(content)
         toDoViewModel = (activity as MainActivity).toDoViewModel
         button_save.setOnClickListener {
-            if(!title_text.text.toString().isEmpty() && !content_text.text.toString().isEmpty()){
+            if(!title_text.text.toString().isEmpty() or !content_text.text.toString().isEmpty()){
                 if (toDoItemEntity == null) {
                     toDoViewModel.insertOrUpdate(
                         ToDoItemEntity(
