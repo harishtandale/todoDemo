@@ -20,6 +20,7 @@ class NewToDoFragment: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        activity?.title = getString(R.string.new_todo)
         toDoItemEntity =  arguments?.getParcelable<ToDoItemEntity>("todo_item")
         title = toDoItemEntity?.title
         content = toDoItemEntity?.content

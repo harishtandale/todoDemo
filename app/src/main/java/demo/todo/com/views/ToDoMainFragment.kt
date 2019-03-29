@@ -37,6 +37,7 @@ class ToDoMainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        activity?.title = getString(R.string.app_name)
         fab.setOnClickListener { view ->
             activity!!.supportFragmentManager.beginTransaction().replace(R.id.main_container, NewToDoFragment())
                 .addToBackStack("new_todo").commit()
