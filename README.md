@@ -15,10 +15,14 @@ Where ,
   - As name suggests ViewModel is ViewModel :- Responsible to store data being aware of component lifecycle
   - Model is the data class :- Holds the data
 
+# Screenshots
+| Main Screen        |   New Todo         |  Delete All Todos |
+| ------------- |:-------------:| -----:|
+|![App Architecture](https://github.com/harishtandale/todoDemo/blob/master/Screenshots/1_app_main_screen.jpg?raw=true?branch=master)       | ![App Architecture](https://github.com/harishtandale/todoDemo/blob/master/Screenshots/2_new_todo.jpg?raw=true?branch=master) | ![App Architecture](https://github.com/harishtandale/todoDemo/blob/master/Screenshots/3_delete_all.jpg?raw=true?branch=master)  |
+
+ 
+
 License
 ----
 
 Apache License Version 2.0
-
-
-**Free Software!**
