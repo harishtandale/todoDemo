@@ -5,6 +5,9 @@ import android.arch.persistence.room.PrimaryKey
 import android.os.Parcel
 import android.os.Parcelable
 
+/**
+ * Data class to represent TO_DO Table
+ */
 @Entity(tableName = "todo_table")
 data class ToDoItemEntity(var title:String, var content : String): Parcelable{
     @PrimaryKey (autoGenerate = true)

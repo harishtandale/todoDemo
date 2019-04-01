@@ -1,4 +1,4 @@
-package demo.todo.com.views
+package demo.todo.com.views.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,6 +9,9 @@ import demo.todo.com.R
 import demo.todo.com.db.entities.ToDoItemEntity
 import kotlinx.android.synthetic.main.todo_item.view.*
 
+/**
+ * Loads ToDOs into screen.
+ */
 class ToDoRecyclerViewAdapter : RecyclerView.Adapter<ToDoRecyclerViewHolder>() {
     var todoItemsList: List<ToDoItemEntity> = arrayListOf<ToDoItemEntity>()
 

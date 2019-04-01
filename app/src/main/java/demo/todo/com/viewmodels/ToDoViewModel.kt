@@ -13,6 +13,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
+/**
+ * This class is lifecycle aware and provides data as per lifecycle of the attached view component
+ */
 class ToDoViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: ToDoItemRepository
     val allTodoToDoItemEntity: LiveData<List<ToDoItemEntity>>

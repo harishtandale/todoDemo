@@ -1,16 +1,17 @@
-package demo.todo.com.views
+package demo.todo.com.views.dialogs
 
 import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
-import android.content.DialogInterface
 import android.app.AlertDialog
 import android.content.ContextWrapper
-import android.support.design.button.MaterialButton
 import android.widget.Button
 import demo.todo.com.R
+import demo.todo.com.views.activities.MainActivity
 
-
+/**
+ * A class represents a dialog , Whenever user press delete all then this dialog pops up
+ */
 class DeleteDialogFragment : DialogFragment() {
     lateinit var alertDialog : AlertDialog
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -20,6 +21,7 @@ class DeleteDialogFragment : DialogFragment() {
             run {
                 val toDoViewModel = (activity as MainActivity).toDoViewModel
                 toDoViewModel.deleteAllTodoItems()
+                alertDialog.dismiss()
             }
         }
         alertDialog = AlertDialog.Builder(ContextWrapper(activity))

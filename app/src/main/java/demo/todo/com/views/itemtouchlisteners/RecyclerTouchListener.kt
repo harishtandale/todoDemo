@@ -1,13 +1,14 @@
-package demo.todo.com.views
+package demo.todo.com.views.itemtouchlisteners
 
 import android.content.Context
-import android.view.MotionEvent
 import android.support.v7.widget.RecyclerView
-import android.text.method.Touch.onTouchEvent
 import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
 
-
+/**
+ * class to handle tap on recycler view items
+ */
 class RecyclerTouchListener(context: Context, recyclerView: RecyclerView, private val clickListener: ClickListener?) :
     RecyclerView.OnItemTouchListener {
 
@@ -22,7 +23,7 @@ class RecyclerTouchListener(context: Context, recyclerView: RecyclerView, privat
             override fun onLongPress(e: MotionEvent) {
                 val child = recyclerView.findChildViewUnder(e.x, e.y)
                 if (child != null && clickListener != null) {
-                    clickListener.onLongClick(child, recyclerView.getChildPosition(child))
+                    clickListener.onLongClick(child, recyclerView.getChildAdapterPosition(child))
                 }
             }
         })
@@ -32,7 +33,7 @@ class RecyclerTouchListener(context: Context, recyclerView: RecyclerView, privat
 
         val child = rv.findChildViewUnder(e.x, e.y)
         if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
-            clickListener.onClick(child, rv.getChildPosition(child))
+            clickListener.onClick(child, rv.getChildAdapterPosition(child))
         }
         return false
     }

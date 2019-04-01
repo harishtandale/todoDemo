@@ -1,4 +1,4 @@
-package demo.todo.com.views
+package demo.todo.com.views.fragments
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle
@@ -11,6 +11,10 @@ import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.*
 import demo.todo.com.R
 import demo.todo.com.viewmodels.ToDoViewModel
+import demo.todo.com.views.dialogs.DeleteDialogFragment
+import demo.todo.com.views.activities.MainActivity
+import demo.todo.com.views.adapters.ToDoRecyclerViewAdapter
+import demo.todo.com.views.itemtouchlisteners.RecyclerTouchListener
 import kotlinx.android.synthetic.main.fragment_main.*
 
 
@@ -39,13 +43,18 @@ class ToDoMainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         activity?.title = getString(R.string.app_name)
         fab.setOnClickListener { view ->
-            activity!!.supportFragmentManager.beginTransaction().replace(R.id.main_container, NewToDoFragment())
+            activity!!.supportFragmentManager.beginTransaction().replace(R.id.main_container,
+                NewToDoFragment()
+            )
                 .addToBackStack("new_todo").commit()
         }
         initializeRecyclerView()
         setUpTouchAndSwipeListener()
     }
 
+    /**
+     *  A function to setup actions(Swipe or Touch) on the recycler view
+     */
     private fun setUpTouchAndSwipeListener() {
         val movFlag = ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(0, movFlag) {
@@ -136,7 +145,9 @@ class ToDoMainFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
-
+    /**
+     *  A function to ask user confirmation using dialog
+     */
     private fun showConfirmation() {
         val deleteDialogFragment = DeleteDialogFragment()
         deleteDialogFragment.show(activity?.supportFragmentManager, "delete_confirmation")

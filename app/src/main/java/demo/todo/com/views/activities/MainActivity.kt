@@ -1,10 +1,11 @@
-package demo.todo.com.views
+package demo.todo.com.views.activities
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import demo.todo.com.R
 import demo.todo.com.viewmodels.ToDoViewModel
+import demo.todo.com.views.fragments.ToDoMainFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +16,9 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toDoViewModel = ViewModelProviders.of(this).get(ToDoViewModel::class.java)
         if(savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().add(R.id.main_container, ToDoMainFragment())
+            supportFragmentManager.beginTransaction().add(R.id.main_container,
+                ToDoMainFragment()
+            )
                 .addToBackStack("main_view").commit()
         }
     }

@@ -6,7 +6,9 @@ import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import demo.todo.com.db.dao.ToDoDao
 import demo.todo.com.db.entities.ToDoItemEntity
-
+/**
+ * Class creates and shares the instance of DB to perform operations on it
+ */
 @Database(entities = [ToDoItemEntity::class],version = 1)
 abstract class ToDoDatabase : RoomDatabase() {
     abstract fun toDoItemDao() : ToDoDao
@@ -15,6 +17,9 @@ abstract class ToDoDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: ToDoDatabase? = null
 
+        /**
+         * Function create singleton instance of DB
+         */
         fun getDatabase(context: Context): ToDoDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {

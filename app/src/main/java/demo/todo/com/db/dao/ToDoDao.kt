@@ -4,6 +4,10 @@ import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*
 import demo.todo.com.db.entities.ToDoItemEntity
 
+/**
+ * Class contains functions for CRUD operations
+ */
+
 @Dao
 interface ToDoDao {
     @Query("SELECT * FROM TODO_TABLE")

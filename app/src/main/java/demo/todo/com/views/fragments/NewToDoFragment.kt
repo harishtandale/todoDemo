@@ -1,4 +1,4 @@
-package demo.todo.com.views
+package demo.todo.com.views.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -6,8 +6,12 @@ import android.view.*
 import demo.todo.com.R
 import demo.todo.com.db.entities.ToDoItemEntity
 import demo.todo.com.viewmodels.ToDoViewModel
-import kotlinx.android.synthetic.main.activity_main.*
+import demo.todo.com.views.activities.MainActivity
 import kotlinx.android.synthetic.main.fragment_new_to_do.*
+
+/**
+ * A fragment to create new To Do
+ */
 
 class NewToDoFragment: Fragment() {
     var title : String?= ""
