@@ -1,5 +1,5 @@
 # ToDo Demo
-A basic ToDo app to demonstrate Android Architecture components using MVVM.
+A basic ToDo app to demonstrate Android Architecture components using MVVM using Kotlin
 
 # Features
   - LiveData :- To update UI in sync with underlying data changes
