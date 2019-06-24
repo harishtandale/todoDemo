@@ -3,7 +3,7 @@ A basic ToDo app to demonstrate Android Architecture components using MVVM using
 
 # Features
   - LiveData :- To update UI in sync with underlying data changes
-  - Room :-  To fetch from sqlite database
+  - Room :-  To fetch data from sqlite database
   - ViewModel :-  To maintain data across activity orientation/recreation
 
 # Architecture
